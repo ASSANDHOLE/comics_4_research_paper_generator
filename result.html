@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Research Comic</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .scene-container {
+      margin-bottom: 40px;
+    }
+    .scene-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: left;
+      padding-left: 10px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      justify-content: center;
+      align-items: stretch; /* Ensures panels in the same row share the same total height */
+      padding: 20px;
+    }
+    .comic-panel {
+      display: flex;
+      justify-content: center;
+      /* Let each panel fill its grid cell, so they can stretch in height as needed */
+      align-items: stretch;
+    }
+    .panel-wrapper {
+      /* Use a column layout so the image is on top, text below */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center the image & text horizontally */
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden; /* Helps keep everything neatly contained */
+      width: 400px;     /* Fixed width to maintain consistent scaling */
+    }
+    /* Fixed width + auto height helps keep a stable aspect ratio for the image. */
+    .panel-wrapper img {
+      width: 400px;     /* Must match .panel-wrapper width */
+      height: auto;     /* Maintains aspect ratio */
+      display: block;
+    }
+    /* At least 1/4 of 300px (i.e., 75px) for the text if the image is 400x300 */
+    .dialogue {
+      min-height: 75px; /* This is 1/4 of a 300px-tall image, but expands if needed */
+      padding: 10px;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      font-size: 18px;
+      line-height: 1.4;
+      text-align: center;
+      word-wrap: break-word;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    /* Small panel mark in the top-left corner, if you still want it */
+    .panel-mark {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: rgba(255, 255, 255, 0.8);
+      color: black;
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      font-size: 16px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Research Paper – Comic Visualization</h1>
+  <div id="comic-container"></div>
+
+  <script>
+    async function loadComic() {
+      try {
+        const [imagesResponse, dialoguesResponse] = await Promise.all([
+          fetch('./images.json'),
+          fetch('./dialogues.json')
+        ]);
+
+        const imagesData = await imagesResponse.json();
+        const dialoguesData = await dialoguesResponse.json();
+        const comicContainer = document.getElementById('comic-container');
+
+        // Create a lookup from image_id to filename.
+        const imageMap = {};
+        imagesData.forEach(img => {
+          imageMap[img.id] = img.name;
+        });
+
+        for (const [scene, panels] of Object.entries(dialoguesData)) {
+          const sceneDiv = document.createElement('div');
+          sceneDiv.classList.add('scene-container');
+
+          // Scene title
+          const title = document.createElement('h2');
+          title.classList.add('scene-title');
+          title.textContent = scene.replace('_', ' ').toUpperCase();
+          sceneDiv.appendChild(title);
+
+          // Create grid container
+          const gridDiv = document.createElement('div');
+          gridDiv.classList.add('grid');
+
+          // Sort panels by image_id
+          panels.sort((a, b) => parseInt(a.image_id) - parseInt(b.image_id));
+
+          panels.forEach((panel, index) => {
+            const panelDiv = document.createElement('div');
+            panelDiv.classList.add('comic-panel');
+
+            // Create a wrapper
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('panel-wrapper');
+
+            // Create image element
+            const img = document.createElement('img');
+            const imageName = imageMap[panel.image_id] || `${panel.image_id}.png`;
+            img.src = `./${imageName}`;
+            img.alt = panel.description;
+
+            // (Optional) Create a panel mark if you still want it:
+            const panelMark = document.createElement('div');
+            panelMark.classList.add('panel-mark');
+            panelMark.textContent = index + 1;
+            wrapper.appendChild(panelMark);
+
+            // Create dialogue box below the image
+            const dialogueBox = document.createElement('div');
+            dialogueBox.classList.add('dialogue');
+            dialogueBox.textContent = panel.text;
+
+            // Append elements to wrapper
+            wrapper.appendChild(img);
+            wrapper.appendChild(dialogueBox);
+
+            // Add wrapper to the panel
+            panelDiv.appendChild(wrapper);
+            // Add panel to the grid
+            gridDiv.appendChild(panelDiv);
+          });
+
+          sceneDiv.appendChild(gridDiv);
+          comicContainer.appendChild(sceneDiv);
+        }
+      } catch (error) {
+        console.error("Error loading comic data:", error);
+      }
+    }
+    loadComic();
+  </script>
+</body>
+</html>
