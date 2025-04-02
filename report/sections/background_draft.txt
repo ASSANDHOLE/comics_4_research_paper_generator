@@ -1,0 +1,8 @@
+What types of models involved: Text only, Diffusion based image generator, Autoregreesive Multimodal models
+
+How is image gen handled? Diffusion? AR?
+
+Challenges in comic gen?
+
+How does the AR image gen better?
+

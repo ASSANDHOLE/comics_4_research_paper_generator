@@ -1,0 +1,39 @@
+\section{Introduction}\label{sec:introduction}
+
+
+Modern research papers often use highly technical language, domain-specific terms,
+and dense methodological detail, making them difficult for non-experts and casual readers to understand.
+The long format and conceptual complexity pose a barrier to broader communication,
+especially for people outside the academic community who may still be curious about recent advances.
+
+Traditionally, turning a research paper into a comic involves significant manual effort:
+one must first read and comprehend the paper, then craft a narrative with appropriate dialogue,
+and finally illustrate or generate the visuals to match the story.
+With the rise of tool-based multimodal pipelines, where LLMs serve as high-level planners and tools like
+Stable Diffusion~\cite{rombach2022high} or DALL·E2~\cite{ramesh2021zero} generate the images,
+this process can be partially automated.
+However, these pipelines face critical limitations:
+1) It is difficult to precisely control visual elements like character positioning, text rendering, or facial expressions.
+2) Maintaining character consistency across different panels or scenes is notoriously unreliable.
+3) Small but meaningful visual errors (e.g., wrong diagram, mismatched labels) are hard to fix.
+
+With the emergence of truly multimodal foundation models,
+like Chameleon~\cite{team2024chameleon}, TransFusion~\cite{zhou2024transfusion}, and MAR~\cite{li2024autoregressive},
+that operate on a unified architecture for both text and image inputs/outputs, we are now seeing more promising results.
+These models allow for fine-grained image control and significantly improve character consistency across scenes.
+However, they still have limitations: they may produce less artistic variation or visual texture
+compared to pure diffusion models, and they sometimes struggle with creative or stylistic rendering.
+
+In this project, we aim to build a semi-automated pipeline that converts research papers into comics that are:
+Story-rich, engaging for casual readers;
+Visually consistent across scenes;
+Understandable without prior domain knowledge;
+Generated quickly, without requiring the operator to deeply understand the source paper.
+
+Our method involves prompting an LLM to read and analyze the paper, extract key ideas and results,
+and convert them into a narrative with well-structured scenes and panel-by-panel descriptions.
+Characters are designed to reflect the structure of the paper,
+and image generation is handled using both traditional tool-based systems and newer autoregressive multimodal models.
+We further compare results between the two approaches and explore techniques to improve consistency, realism, and visual quality.
+
+

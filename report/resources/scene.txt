@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings, skins, breakable}
+
+\begin{document}
+
+\appendix
+\section*{Appendix: Prompt Optimization for Comic Generation}
+\subsection*{Scene Design Trade-offs: Detail vs. Output Quality}
+
+To investigate how scene description complexity impacts the quality of AI-generated comic visuals, we constructed two versions of Scene 3 (corresponding to Section 3 of the paper). The first version aimed for maximum fidelity and completeness; the second version prioritized clarity and simplicity for more robust visual synthesis. Results suggest that over-detailed prompts can reduce image quality or lead to cluttered, incoherent visuals.
+
+\begin{tcolorbox}[enhanced, title=Scene 3 – Original (Overly Detailed), fonttitle=\bfseries, colframe=black, colback=gray!5, breakable]
+\textbf{Title: The Solution – “Gaze-Centric Loss”}
+
+\textbf{Panel 1: "The Problem with Standard Training"} \\
+Characters: Scientist A and B in lab, screen shows odd eye behavior in face swap. \\
+Dialogue: “These models treat every pixel the same—even the eyes!” / “No wonder the gaze always feels... wrong.” \\
+Visuals: Full neural network diagram with encoder/decoder structure, facial heatmaps, warning signs on eyes.
+
+\textbf{Panel 2: "A New Kind of Loss"} \\
+Characters: Scientist A coding, screen shows math and diagrams. \\
+Dialogue: “Let’s align the predicted gaze vector with the real one... using L2CS-Net...” \\
+Visuals: Code snippets, annotated formulas, training hyperparameters written on sticky notes.
+
+\textbf{Panel 3: "Training with Gaze Focus"} \\
+Characters: Scientists watching training dashboard. \\
+Dialogue: “Now it compares gaze angles and fixes them during training.” \\
+Visuals: Animated training loop with gaze heatmaps, 3D face mesh, dynamic arrows showing gaze correction.
+
+\textbf{Panel 4: "A Clearer Vision"} \\
+Characters: Scientist B comparing two images. \\
+Dialogue: “Now it actually follows your eyes.” \\
+Visuals: Side-by-side face comparison, technical overlays showing angle deltas, labeled graphs.
+\end{tcolorbox}
+
+\vspace{1em}
+
+\begin{tcolorbox}[enhanced, title=Scene 3 – Simplified (Used for Final Generation), fonttitle=\bfseries, colframe=black, colback=gray!5, breakable]
+\textbf{Title: The Fix – “Training the Eyes”}
+
+\textbf{Panel 1: “Standard Training = Bad Gaze”} \\
+Characters: Scientist A, frustrated at his screen. \\
+Dialogue: “Why do the eyes always feel so… fake?” \\
+Visuals: Side-by-side swapped faces, one with strange gaze.
+
+\textbf{Panel 2: “Idea Spark”} \\
+Characters: Scientist B holding a sketch of gaze arrows. \\
+Dialogue: “Let’s teach the model to match the real gaze!” \\
+Visuals: Simple diagram with before/after gaze alignment.
+
+\textbf{Panel 3: “Gaze Loss in Action”} \\
+Characters: Both scientists watching a training animation. \\
+Dialogue: “Now it compares gaze angles and fixes them during training.” \\
+Visuals: Progress bar labeled “Learning Gaze”, arrows adjusting gaze in face.
+
+\textbf{Panel 4: “The Results Look Better”} \\
+Characters: Scientist B holding two printouts. \\
+Dialogue: “Now this one feels human.” \\
+Visuals: Comparison of face with misaligned vs natural gaze, labeled “Before / After”.
+\end{tcolorbox}
+
+\end{document}
