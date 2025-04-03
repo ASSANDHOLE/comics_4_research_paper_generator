@@ -1,0 +1,104 @@
+\section{Prompt Details for Scene Comparison}\label{sec:prompt-details-for-scene-comparison}
+
+\subsection{Overly Detailed Version}
+
+\textbf{Scene 3: The Solution -- ``Gaze-Centric Loss''}
+
+\paragraph{Panel 1: ``The Problem with Standard Training''}
+\begin{itemize}
+    \item \textbf{Layout:} Split-frame panel. Left side shows a model training with standard loss; right side shows the resulting face with odd eye direction.
+    \item \textbf{Characters:} Scientist A (typing), Scientist B (watching with crossed arms).
+    \item \textbf{Dialogue:}
+    \begin{itemize}
+        \item Scientist A: ``These models treat every pixel the same---even the eyes!''
+        \item Scientist B: ``No wonder the gaze always feels\ldots wrong.''
+    \end{itemize}
+    \item \textbf{Visual Details:}
+    \begin{itemize}
+        \item Left: Diagram of a neural network with labels: ``Input face'' → ``Encoder'' → ``Decoder'' → ``Output face'', with ``Reconstruction Loss'' applied evenly.
+        \item Right: Output face with mismatched gaze and red warning icons near eyes.
+    \end{itemize}
+    \item \textbf{Environment:} Sci-fi lab with holographic overlays, HUD-style. Charts show ``Gaze Error $\uparrow$'' and ``Uncanniness $\uparrow$''.
+\end{itemize}
+
+\paragraph{Panel 2: ``A New Kind of Loss''}
+\begin{itemize}
+    \item \textbf{Layout:} Over-the-shoulder view of Scientist A coding. A stylized equation labeled ``Gaze Loss'' appears on screen.
+    \item \textbf{Caption:} A new loss function that pays special attention to where the eyes are looking.
+    \item \textbf{Dialogue:} Scientist A (whispering): ``Let's align the predicted gaze vector with the real one\ldots using L2CS-Net\ldots and multiply it by eye-region similarity\ldots''
+    \item \textbf{Visual Details:} Code snippet with $\theta = \text{angle}(gaze\_real, gaze\_fake)$; boxes labeled ``eye mask'', ``MSE'', ``DSSIM''.
+    \item \textbf{Background:} Sticky notes read ``alpha = 3, beta = 30'' and ``target: fix the uncanny eyes''.
+    \item \textbf{Mood:} Creative breakthrough moment, screen glowing.
+\end{itemize}
+
+\paragraph{Panel 3: ``Training with Gaze Focus''}
+\begin{itemize}
+    \item \textbf{Layout:} Full-panel view of a 3D wireframe head during training.
+    \item \textbf{Narration:} The model now focuses more on the gaze angle than any other feature.
+    \item \textbf{Visuals:}
+    \begin{itemize}
+        \item Neural network flow: Input face → Encoder → Bottleneck → Decoder → Output face.
+        \item Side-branch to ``Gaze Estimator'' (L2CS-Net), with arrow overlays showing vector correction.
+        \item Heatmap highlights eye regions.
+    \end{itemize}
+    \item \textbf{Characters:} Scientists observe as gaze alignment adjusts live.
+    \item \textbf{Metaphor:} Training loss appears as energy lines correcting gaze, like a laser auto-targeting.
+\end{itemize}
+
+\paragraph{Panel 4: ``A Clearer Vision''}
+\begin{itemize}
+    \item \textbf{Layout:} Before/after comparison -- left is baseline, right is with gaze loss.
+    \item \textbf{Characters:} Scientist B holding both versions.
+    \item \textbf{Dialogue:} ``Look at that---now it actually follows your eyes. No more glassy stare.''
+    \item \textbf{Visuals:}
+    \begin{itemize}
+        \item Left: subtle gaze misalignment, slightly lifeless eyes.
+        \item Right: aligned, natural gaze with confidence and clarity.
+    \end{itemize}
+    \item \textbf{Background:} Lab monitor shows ``Gaze Error $\downarrow$ 21\%'' and ``Eye Region Confidence $\uparrow$''.
+\end{itemize}
+
+\subsection{Simplified Version}
+
+\textbf{Scene 3: The Fix -- ``Training the Eyes''}
+
+\paragraph{Panel 1: ``Standard Training = Bad Gaze''}
+\begin{itemize}
+    \item \textbf{Characters:} Scientist A at the computer, frustrated.
+    \item \textbf{Dialogue:} ``Why do the eyes always feel so\ldots fake?''
+    \item \textbf{Visuals:} Side-by-side generated faces on screen. One has a slightly crossed or misaligned gaze.
+    \item \textbf{Environment:} Simple lab setup. Sticky note on the monitor reads ``Goal: Fix the eyes''.
+\end{itemize}
+
+\paragraph{Panel 2: ``Idea Spark''}
+\begin{itemize}
+    \item \textbf{Characters:} Scientist B holding up a sketch showing a face and two arrows indicating gaze direction.
+    \item \textbf{Dialogue:} ``Let's teach the model to match the real gaze!''
+    \item \textbf{Visuals:} Two doodled faces — one with aligned eyes, the other with mismatched gaze.
+    \item \textbf{Environment:} Whiteboard or sketchpad in the background. A lightbulb symbolizing inspiration.
+\end{itemize}
+
+\paragraph{Panel 3: ``Gaze Loss in Action''}
+\begin{itemize}
+    \item \textbf{Characters:} Both scientists watching a simplified animation on a glowing monitor.
+    \item \textbf{Dialogue:} ``Now it compares gaze angles and fixes them during training.''
+    \item \textbf{Visuals:}
+    \begin{itemize}
+        \item Face input passes through a network and outputs a corrected version.
+        \item Progress bar labeled ``Learning: Gaze Alignment'' gradually fills.
+        \item Eyes in the output become more aligned frame by frame.
+    \end{itemize}
+    \item \textbf{Environment:} Consistent lab scene with an emphasis on simplicity.
+\end{itemize}
+
+\paragraph{Panel 4: ``The Results Look Better''}
+\begin{itemize}
+    \item \textbf{Characters:} Scientist B comparing two printed face images.
+    \item \textbf{Dialogue:} ``Now this one feels human.''
+    \item \textbf{Visuals:}
+    \begin{itemize}
+        \item Left print: awkward gaze with slight glassiness.
+        \item Right print: confident gaze, spark in the eyes.
+    \end{itemize}
+    \item \textbf{Environment:} Clean desk. Small post-it on the table reads ``Success?''.
+\end{itemize}

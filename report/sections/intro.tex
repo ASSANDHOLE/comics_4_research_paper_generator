@@ -9,7 +9,7 @@ especially for people outside the academic community who may still be curious ab
 Traditionally, turning a research paper into a comic involves significant manual effort:
 one must first read and comprehend the paper, then craft a narrative with appropriate dialogue,
 and finally illustrate or generate the visuals to match the story.
-With the rise of tool-based multimodal pipelines, where LLMs serve as high-level planners and tools like
+With the rise of diffusion-model-as-a-tool multimodal pipelines, where LLMs serve as high-level planners and tools like
 Stable Diffusion~\cite{rombach2022high} or DALL·E2~\cite{ramesh2021zero} generate the images,
 this process can be partially automated.
 However, these pipelines face critical limitations:
@@ -17,7 +17,7 @@ However, these pipelines face critical limitations:
 2) Maintaining character consistency across different panels or scenes is notoriously unreliable.
 3) Small but meaningful visual errors (e.g., wrong diagram, mismatched labels) are hard to fix.
 
-With the emergence of truly multimodal foundation models,
+With the emergence of unified multimodal foundation models,
 like Chameleon~\cite{team2024chameleon}, TransFusion~\cite{zhou2024transfusion}, and MAR~\cite{li2024autoregressive},
 that operate on a unified architecture for both text and image inputs/outputs, we are now seeing more promising results.
 These models allow for fine-grained image control and significantly improve character consistency across scenes.
